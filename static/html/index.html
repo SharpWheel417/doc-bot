@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='stylesheet' href='/src/styles/style.css'>
+  <title>TT-ConvDW-C/KA/3</title>
+</head>
+
+<body>
+
+  <header>
+    <div class='row'>
+      <svg class='vc' width='32' height='30' viewBox='0 0 102 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='32' height='30' fill='#13161B' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M60.9051 39.0077C64.5114 42.137 66.7733 46.6381 66.7733 51.6406C66.7733 61.0925 58.6981 68.7547 48.7369 68.7547C44.0412 68.7547 39.7647 67.0521 36.5555 64.262C40.398 68.5022 45.8104 71.1429 51.8069 71.1429C63.4637 71.1429 72.9134 61.1641 72.9134 48.8547C72.9134 42.6667 70.5254 37.0677 66.6694 33.0293L60.9051 39.0077Z'
+          fill='#F5F5F5' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M38.8712 59.4981C35.2648 56.3689 33.0029 51.8677 33.0029 46.8653C33.0029 37.4134 41.0781 29.7511 51.0394 29.7511C55.735 29.7511 60.0116 31.4538 63.2207 34.2439C59.3783 30.0037 53.9658 27.363 47.9693 27.363C36.3125 27.363 26.8629 37.3418 26.8629 49.6512C26.8629 55.8392 29.2509 61.4381 33.1068 65.4766L38.8712 59.4981Z'
+          fill='#F5F5F5' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M26.863 74.0472C33.2256 81.1688 42.2173 85.6089 52.1843 85.6089C71.471 85.6089 87.1059 68.9829 87.1059 48.4738C87.1059 38.4495 83.3707 29.3529 77.2997 22.6719L72.2401 27.8256C78.104 33.7009 81.7334 41.8335 81.7334 50.8192C81.7334 68.7377 67.3011 83.2635 49.498 83.2635C40.709 83.2635 32.7416 79.7233 26.9265 73.9825L26.863 74.0472Z'
+          fill='#F5F5F5' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M74.0582 24.0705C67.6955 16.9488 58.7038 12.5087 48.7368 12.5087C29.4501 12.5087 13.8152 29.1346 13.8152 49.6438C13.8152 59.6681 17.5504 68.7648 23.6215 75.4458L28.681 70.2921C22.8171 64.4167 19.1877 56.2842 19.1877 47.2984C19.1877 29.3799 33.62 14.8541 51.4231 14.8541C60.2121 14.8541 68.1796 18.3943 73.9946 24.1352L74.0582 24.0705Z'
+          fill='#F5F5F5' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M16.8851 84.3644C25.8872 94.005 38.5146 100 52.4956 100C79.8361 100 102 77.0738 102 48.7928C102 34.6141 96.429 21.7814 87.4278 12.5088L82.0008 18.0369C91.0086 26.4436 96.6273 38.3398 96.6273 51.529C96.6273 77.0035 75.6662 97.6547 49.8093 97.6547C36.9834 97.6547 25.3621 92.5735 16.9062 84.3428L16.8851 84.3644Z'
+          fill='#F5F5F5' />
+        <path fill-rule='evenodd' clip-rule='evenodd'
+          d='M85.1149 15.6357C76.1128 5.99503 63.4854 -0.000160217 49.5043 -0.000160217C22.1639 -0.000160217 3.8147e-05 22.9262 3.8147e-05 51.2072C3.8147e-05 65.3859 5.57096 78.2187 14.5722 87.4912L19.9992 81.9632C10.9913 73.5564 5.3726 61.6602 5.3726 48.471C5.3726 22.9964 26.3337 2.34526 52.1906 2.34526C65.0165 2.34526 76.6379 7.42652 85.0938 15.6572L85.1149 15.6357Z'
+          fill='#F5F5F5' />
+      </svg>
+      <h1 style='margin-left: 5pt;'>TECAPT</h1>
+    </div>
+  </header>
+  <section>
+    <div class='container full' style='height: min-content;'>
+      <div class='row info' style='width: 97%; margin-left: auto; margin-right: auto; justify-content: space-between;'>
+        <h3 id='nameConv'></h3>
+        <h3 id='idConv'></h3>
+      </div>
+    </div>
+  </section>
+  <section>
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+
+        <h3 class='text-c-top-5' id='param1'></h3>
+        <h3 class='text-c-top-15' id='param2'></h3>
+        <h3 class='text-c-top-15' id='param3'></h3>
+
+      </div>
+    </div>
+
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <h3 style='text-align: center;'>Channel 1</h3>
+
+      <div class='row' style='width:100%'>
+
+        <div style='width: 50%;'>
+          <h3 class='mt-1' style='text-align: center;'>Atten 1</h3>
+          <div class='row ml-25-mt-5'>
+            <input id='att1Ch1' class='glass-input atten' placeholder='0-31.5 db'>
+          </div>
+        </div>
+
+        <div style='width: 50%;'>
+          <h3 class='mt-1' style='text-align: center;'>Atten 2</h3>
+          <div class='row center ml-25-mt-5'>
+            <input id='att2Ch1' class='glass-input atten' placeholder='0-31.5 db'>
+          </div>
+        </div>
+
+      </div>
+      <div class='button-container' style='margin-left: auto; margin-right: auto;'>
+        <button id='applyChannel1' class='glass-button' style='width: 100px;'>Apply</button>
+      </div>
+
+    </div>
+
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <h3 style='text-align: center;'>Channel 2</h3>
+
+      <div class='row' style='width:100%'>
+
+        <div style='width: 50%;'>
+          <h3 class='mt-1' style='text-align: center;'>Atten 1</h3>
+          <div class='row ml-25-mt-5'>
+            <input id='att1Ch2' class='glass-input atten' placeholder='0-31.5 db'>
+
+          </div>
+        </div>
+
+        <div style='width: 50%;'>
+          <h3 class='mt-1' style='text-align: center;'>Atten 2</h3>
+          <div class='row center ml-25-mt-5'>
+            <input id='att2Ch2' class='glass-input atten' placeholder='0-31.5 db'>
+          </div>
+        </div>
+
+      </div>
+      <div class='button-container' style='margin-left: auto; margin-right: auto;'>
+        <button id='applyChannel2' class='glass-button' style='width: 100px;'>Apply</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+
+
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+        <div class='row'>
+          <h3 class='mt-1'>REF Source</h3>
+          <div class='checkbox-container'>
+            <input id='auto' type='checkbox'>
+            <label for='auto'>Auto</label>
+          </div>
+        </div>
+        <div class='switch-button c' style='margin-top: 9.5%;'>
+          <span class='label ext'>INT</span>
+          <input id='ref' onclick='send(this, `set_ref.cgi`, `ref`)' type='checkbox' />
+          <label id='labRefSource' for='ref'></label>
+          <span class='label int'>EXT</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+        <h3 class='mt-1'>LO Source</h3>
+
+        <div class='switch-button c' style='margin-top: 20%;'>
+          <span class='label ext'>INT</span>
+          <input id='lo' type='checkbox' onclick='send(this, `set_lo.cgi`, `lo`)' />
+          <label for='lo'></label>
+          <span class='label int'>EXT</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class='container quarter-plus'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+        <h3 class='mt-1'>RF Power</h3>
+
+        <div class='switch-button c' style='margin-top: 20%;'>
+          <span class='label ext'>OFF</span>
+          <input type='checkbox' onclick='send(this, `set_pwr.cgi`, `rf`)' id='rf' />
+          <label for='rf'></label>
+          <span class='label int'>ON</span>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class='container seventheen sett-container'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+        <h3 class=' mt-1' style='margin-bottom: 5px;'>Setting</h3>
+        <div class='row mt-1 setting'>
+          <div>
+            <label style='margin-top: 3%; margin-right: 2%;'>IP: </label>
+            <input id='ip' class='glass-input dis' placeholder='192.168.0.100'
+              style='width: 50%; margin: 2%; margin-left: 5%;'>
+          </div>
+
+          <div class='row dg' style=' margin-left: 10%;'>
+            <label style='margin-top: 1%;'>Default Gateway: </label>
+            <input id='gw' class='glass-input dis' placeholder='0.0.0.0' style='width: 80%; margin: 2%;'>
+          </div>
+
+        </div>
+        <div class='row mt-1 setting'>
+          <div>
+            <label style='margin-top: 3%;'>Sub: </label>
+            <input id='sn' class='glass-input dis' placeholder='255.255.255.0' style='width: 50%; margin: 2%;'>
+          </div>
+          <div class='row mc' style=' margin-left: 8.6%;'>
+            <label class='mt-5'>Mac: </label>
+            <input id='mac' class='glass-input dis' placeholder='00:00:00:00:00:00'
+              style='width: 183px; margin: 4%;  margin-left: 26%;'>
+          </div>
+        </div>
+        <div class='row w-100 setting' style='justify-content: space-between;'>
+          <div class='checkbox-container' style='margin-left: 0px; margin-top: 1%;'>
+            <input id='changeSett' type='checkbox'>
+            <label for='changeSett'>Change settings</label>
+          </div>
+
+
+          <div class='button-container w-20'>
+            <button id='apply' class='glass-button mt-0 w-100 '>Apply</button>
+          </div>
+
+          <div class='button-container w-20'>
+            <button class='glass-button mt-0 w-100' id='defaultSetting'>Default Setting</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class='container quarter'>
+      <div class='inner-circle'></div>
+      <div class='content'>
+        <div class='row' id='setErr'>
+          <h3 class='mt-1'>Status:</h3>
+        </div>
+        <p class='ml-5' id='status'></p>
+        <div class='row'>
+          <h3>Temp:</h3>
+        </div>
+        <p id='temp' class='ml-5'></p>
+      </div>
+    </div>
+  </section>
+
+
+
+  </div>
+</body>
+<script src='/src/scripts/1.script.js'></script>
+<script src='/src/scripts/2.atten.js'></script>
+<script src='/src/scripts/3.settings.js'></script>
+
+</html>
