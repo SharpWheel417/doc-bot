@@ -32,7 +32,7 @@ async def handle_message(update: Update, context: CallbackContext):
 
         mass = text.split(' ')
 
-        print('mass: ' + mass)
+        print('mass: ' + str(mass))
 
         list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
         print(list_files.returncode)
