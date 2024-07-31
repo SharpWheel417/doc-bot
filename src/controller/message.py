@@ -8,10 +8,7 @@ from config import ADMIN_ID
 from ..view.send import sendmess, senddoc
 
 # Получаем путь к дефолтному терминалу
-terminal_path = subprocess.check_output(['which', 'x-terminal-emulator']).decode().strip()
-
-# Создаем новый экземпляр терминала
-terminal = subprocess.Popen([terminal_path], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+terminal = subprocess.Popen(['gnome-terminal'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 async def handle_message(update: Update, context: CallbackContext):
 
