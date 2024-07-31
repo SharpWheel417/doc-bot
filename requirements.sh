@@ -1,3 +1,6 @@
+sudo apt update
+sudo apt install pandoc wkhtmltopdf
+
 pip3 install docx2pdf
 pip3 install python-telegram-bot
 pip install bs4

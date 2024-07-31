@@ -4,6 +4,7 @@ import telegram
 from telegram import Update, Bot
 from telegram.ext import CallbackContext
 import docx2pdf
+import subprocess
 
 from ..processing.compress import process_html_file, compress_js_files, compress_css_files
 
@@ -144,6 +145,7 @@ async def handle_document(update: Update, context: CallbackContext):
 
 
     new_file_path = os.path.join("static/document", str(file_name)+ '.docx')
+    pdf_path = os.path.join("static/pdf/", str(file_name)+'.pdf')
 
     try:
         # Получить файл из Telegram API
@@ -161,8 +163,11 @@ async def handle_document(update: Update, context: CallbackContext):
     await sendmess("Файл сохранен, начинается обработка", update, context)
 
     try:
-        # Конвертируем docx в PDF
-        docx2pdf.convert("static/document/" + str(file_name)+'.docx', "static/pdf/"+ str(file_name)+'.pdf')
+        command = ['pandoc', new_file_path, '-o', pdf_path, '--pdf-engine=wkhtmltopdf']
+        subprocess.run(command, check=True)
+
+        # # Конвертируем docx в PDF
+        # docx2pdf.convert("static/document/" + str(file_name)+'.docx', "static/pdf/"+ str(file_name)+'.pdf')
     except Exception as e:
         await sendmess(e, update, context)
 
