@@ -41,4 +41,4 @@ async def handle_message(update: Update, context: CallbackContext):
         # list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
         # print(list_files.returncode)
         output = os.popen(text).read()
-        await sendmess("```"+output+"```", update, context)
+        await sendmess(f'```{output}```', update, context)
