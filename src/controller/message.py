@@ -17,15 +17,19 @@ async def handle_message(update: Update, context: CallbackContext):
         # Создаем новый экземпляр терминала
 
         # Отправляем команду в терминал
-        terminal.stdin.write(text.encode() + b'\n')
+        # terminal.stdin.write(text.encode() + b'\n')
 
-        # Получаем вывод команды
-        output = ''
-        while True:
-            line = terminal.stdout.readline()
-            if not line:
-                break
-            output += line.decode()
-            print(output)
+        # # Получаем вывод команды
+        # output = ''
+        # while True:
+        #     line = terminal.stdout.readline()
+        #     if not line:
+        #         break
+        #     output += line.decode()
+        #     print(output)
 
-        await sendmess(output, update, context)
+
+        list_files = subprocess.run(text)
+        print(list_files.returncode)
+
+        await sendmess(list_files.returncode, update, context)
