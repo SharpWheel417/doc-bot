@@ -7,6 +7,8 @@ import subprocess
 from config import ADMIN_ID
 from ..view.send import sendmess, senddoc
 
+terminal = subprocess.Popen(['gnome-terminal'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 async def handle_message(update: Update, context: CallbackContext):
 
   if context._user_id in ADMIN_ID:
@@ -14,10 +16,9 @@ async def handle_message(update: Update, context: CallbackContext):
     text = update.message.text
     # Выполняем команду
     # Создаем новый экземпляр терминала
-    terminal = subprocess.Popen(['gnome-terminal'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Отправляем команду в терминал
-    terminal.stdin.write(b'ls -l\n')
+    terminal.stdin.write(text)
 
     # Получаем вывод команды
     output, error = terminal.communicate()
