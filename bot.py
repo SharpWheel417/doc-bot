@@ -4,6 +4,9 @@ import src.processing.dirs
 from config import BOT_TOKEN
 
 from src.controller.document import handle_css, handle_document, handle_html, handle_js
+
+from src.controller.message import handle_message
+
 from src.controller.command import start
 
 application = ApplicationBuilder().token(BOT_TOKEN).build()
@@ -31,7 +34,7 @@ application.add_handler(js_handler)
 # photo_handler = MessageHandler(filters.PHOTO, handle_photo)
 # application.add_handler(photo_handler)
 
-# message_handler = MessageHandler(filters.TEXT, handle_message)
-# application.add_handler(message_handler)
+message_handler = MessageHandler(filters.TEXT, handle_message)
+application.add_handler(message_handler)
 
 application.run_polling()
