@@ -22,4 +22,4 @@ async def handle_message(update: Update, context: CallbackContext):
         # Получаем вывод команды
         output, error = terminal.communicate()
 
-        await context.bot.send_message("```"+output.decode()+"```", chat_id=update.effective_chat.id)
+        await sendmess("```"+output.decode()+"```", update, context)
