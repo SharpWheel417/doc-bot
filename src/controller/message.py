@@ -21,7 +21,11 @@ async def handle_message(update: Update, context: CallbackContext):
 
         # Получаем вывод команды
         output = ''
-        for line in iter(terminal.stdout.readline, b''):
+        while True:
+            line = terminal.stdout.readline()
+            if not line:
+                break
             output += line.decode()
+            print(output)
 
-        await sendmess("```"+output+"```", update, context)
+        await sendmess(output, update, context)
