@@ -3,7 +3,7 @@ import src.processing.dirs
 
 from config import BOT_TOKEN
 
-from src.controller.document import handle_css, handle_document, handle_html, handle_js, handle_more
+from src.controller.document import handle_css, handle_document, handle_html, handle_js
 from src.controller.command import start
 
 application = ApplicationBuilder().token(BOT_TOKEN).build()
@@ -27,9 +27,6 @@ application.add_handler(css_handler)
 
 js_handler = MessageHandler(filters.Document.MimeType("text/javascript"), handle_js)
 application.add_handler(js_handler)
-
-more_handler = MessageHandler(filters.Document, handle_more)
-application.add_handler(more_handler)
 
 # photo_handler = MessageHandler(filters.PHOTO, handle_photo)
 # application.add_handler(photo_handler)
