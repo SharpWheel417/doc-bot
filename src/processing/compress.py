@@ -80,14 +80,3 @@ def compress_css_files(source_folder: str, output_file: str):
             with open(css_file, 'r', encoding='utf-8') as infile:
                 minified_css = cssmin.cssmin(infile.read())
                 outfile.write(minified_css)
-
-if not os.path.exists("compressed"):
-    os.mkdir("compressed")
-
-# process_html_file('converters/OneChannel.html', 'compressed/OneChannel.html')
-# process_html_file('converters/TwoChannel.html', 'compressed/TwoChannel.html')
-# process_html_file('converters/Summary.html', 'compressed/Summary.html')
-
-# compress_js_files("src/scripts", "compressed/script.js")
-
-# compress_css_files("src/styles", "compressed/style.css")
