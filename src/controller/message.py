@@ -29,8 +29,10 @@ async def handle_message(update: Update, context: CallbackContext):
         #     print(output)
 
         print(text)
-
-        mass = text.split(' ')
+        if "cd" not in text:
+          mass = text.split(' ')
+        else:
+           mass = text
 
         print('mass: ' + str(mass))
         command = ['gnome-terminal', '-e', 'bash -c']
