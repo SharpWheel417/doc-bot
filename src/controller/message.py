@@ -19,7 +19,7 @@ async def handle_message(update: Update, context: CallbackContext):
     # Создаем новый экземпляр терминала
 
     # Отправляем команду в терминал
-    terminal.stdin.write(text)
+    terminal.stdin.write(str(text))
 
     # Получаем вывод команды
     output, error = terminal.communicate()
