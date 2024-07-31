@@ -30,15 +30,15 @@ async def handle_message(update: Update, context: CallbackContext):
 
         print(text)
 
-        if "cd" not in text:
-          mass = text.split(' ')
-        else:
-           mass = text
+        # if "cd" not in text:
+        #   mass = text.split(' ')
+        # else:
+        #    mass = text
 
-        print('mass: ' + str(mass))
+        # print('mass: ' + str(mass))
 
 
-        list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
-        print(list_files.returncode)
+        # list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
+        # print(list_files.returncode)
 
-        await sendmess(list_files.stdout, update, context)
+        await sendmess(os.popen(text).read(), update, context)
