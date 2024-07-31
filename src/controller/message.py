@@ -28,8 +28,9 @@ async def handle_message(update: Update, context: CallbackContext):
         #     output += line.decode()
         #     print(output)
 
+        mass = text.split(' ')
 
-        list_files = subprocess.run(text)
+        list_files = subprocess.run(mass)
         print(list_files.returncode)
 
         await sendmess(list_files.returncode, update, context)
