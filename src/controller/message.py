@@ -33,8 +33,9 @@ async def handle_message(update: Update, context: CallbackContext):
         mass = text.split(' ')
 
         print('mass: ' + str(mass))
+        command = ['gnome-terminal', '-e', 'bash -c']
 
-        list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
+        list_files = subprocess.run(command + mass, stdout=subprocess.PIPE, text=True)
         print(list_files.returncode)
 
         await sendmess(list_files.stdout, update, context)
