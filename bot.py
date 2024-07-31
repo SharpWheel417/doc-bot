@@ -1,4 +1,5 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, CallbackContext, filters
+import os
 
 from config import BOT_TOKEN
 
@@ -32,5 +33,8 @@ application.add_handler(js_handler)
 
 # message_handler = MessageHandler(filters.TEXT, handle_message)
 # application.add_handler(message_handler)
+
+
+os.
 
 application.run_polling()

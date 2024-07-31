@@ -3,3 +3,9 @@ __pycache__
 config.py
 pb
 pb/
+
+static/css
+static/html
+static/js
+static/pdf
+static/document
