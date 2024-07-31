@@ -41,6 +41,7 @@ async def handle_css(update: Update, context: CallbackContext):
     Сжимает css
     '''
 
+    files = update.message.documents
     file = update.message.document
     file_name = file.file_name
     file_name = file_name.split('.')[0]
@@ -57,11 +58,9 @@ async def handle_css(update: Update, context: CallbackContext):
 
     # Отправляем PDF обратно пользователю
     with open(compres_file_path, 'rb') as f:
-        await sendmess("Сжатие прошло успешно", update, context)
+        await senddoc(f=f, text="Сжатие прошло успешно", update=update, context=context)
 
-
-
-async def handle_js(update: Update, context: CallbackContext):
+async def handle_more(update: Update, context: CallbackContext):
     '''
     Сжимает js
     '''
@@ -84,6 +83,43 @@ async def handle_js(update: Update, context: CallbackContext):
     with open(compres_file_path, 'rb') as f:
         await senddoc(f=f, text='Сжатый файл', update=update, context=context)
 
+
+
+async def handle_js(update: Update, context: CallbackContext):
+    '''
+    Сжимает js
+    '''
+    context = context
+    media_group = update.message.media_group_id
+
+    if media_group:
+        # Обработка медиа-группы
+        for media in update.message.media_group:
+            file = media.document
+            if file and file.mime_type == "text/javascript":
+                file_name = file.file_name
+                base_name = file_name.split('.')[0]
+                # Добавьте сюда логику для обработки файла, например, сжатие
+                await update.message.reply_text(f'Получен файл: {file_name} (base: {base_name})')
+
+    else:
+        # Обработка одиночного файла
+        file = update.message.document
+        file_name = file.file_name
+        file_name = file_name.split('.')[0]
+
+        file_path = 'static/js/'+str(file_name)+'.js'
+        compres_file_path = 'static/js/compressed/'+str(file_name)+'_compress.js'
+
+        ## Сохраняем файл в папке
+        await save(file, file_path)
+
+        # Добавьте сюда логику для обработки файла, например, сжатие
+        process_html_file(file_path, compres_file_path)
+
+        # Отправляем PDF обратно пользователю
+        with open(compres_file_path, 'rb') as f:
+            await senddoc(f=f, text='Сжатый файл', update=update, context=context)
 
 
 
@@ -134,4 +170,4 @@ async def handle_document(update: Update, context: CallbackContext):
 
     # Отправляем PDF обратно пользователю
     with open('static/pdf/'+str(file_name)+'.pdf', 'rb') as f:
-        await context.bot.send_document(chat_id=update.effective_chat.id, document=f)
+        await senddoc(f=f, text="Сжатый файл:", update=update, context=context)

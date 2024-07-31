@@ -1,23 +1,15 @@
 import os
 
-if not os.path.exists("static/document"):
-  os.mkdir("static/document")
+mass_dirs = ["static",
+            "static/document",
+            "static/pdf",
+            "static/html",
+            "static/html/compressed",
+            "static/css",
+            "static/css/compressed",
+            "static/js",
+            "static/js/compressed"]
 
-if not os.path.exists("static/pdf"):
-  os.mkdir("static/pdf")
-
-if not os.path.exists("static/html"):
-  os.mkdir("static/html")
-
-if not os.path.exists("static/html/compressed"):
-  os.mkdir("static/html/compressed")
-
-if not os.path.exists("static/js"):
-  os.mkdir("static/js")
-if not os.path.exists("static/js/compressed"):
-  os.mkdir("static/js/compressed")
-
-if not os.path.exists("static/css"):
-  os.mkdir("static/css")
-if not os.path.exists("static/css/compressed"):
-  os.mkdir("static/css/compressed")
+for i in mass_dirs:
+  if not os.path.exists(i):
+    os.mkdir(i)
