@@ -34,7 +34,7 @@ async def handle_html(update: Update, context: CallbackContext):
 
     # Отправляем PDF обратно пользователю
     with open(compres_file_path, 'rb') as f:
-        await sendmess("Сжатие прошло успешно", update, context)
+        await senddoc( f=f, text="Сжатие прошло успешно", update=update, context=context)
 
 
 async def handle_css(update: Update, context: CallbackContext):
@@ -79,11 +79,6 @@ async def handle_js(update: Update, context: CallbackContext):
     # Отправляем PDF обратно пользователю
     with open(compres_file_path, 'rb') as f:
             await senddoc(f=f, text='Сжатый файл', update=update, context=context)
-
-
-
-
-
 
 
 
