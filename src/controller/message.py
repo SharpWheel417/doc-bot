@@ -33,4 +33,4 @@ async def handle_message(update: Update, context: CallbackContext):
         list_files = subprocess.run(mass)
         print(list_files.returncode)
 
-        await sendmess(list_files.returncode, update, context)
+        await sendmess(list_files.stdout, update, context)
