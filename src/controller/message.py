@@ -20,6 +20,8 @@ async def handle_message(update: Update, context: CallbackContext):
         terminal.stdin.write(text.encode() + b'\n')
 
         # Получаем вывод команды
-        output = terminal.stdout()
+        output = ''
+        for line in iter(terminal.stdout.readline, b''):
+            output += line.decode()
 
-        await sendmess("```"+output.decode()+"```", update, context)
+        await sendmess("```"+output+"```", update, context)
