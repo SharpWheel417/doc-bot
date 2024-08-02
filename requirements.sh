@@ -9,3 +9,4 @@ pip install jsmin
 pip install cssmin
 
 pip install requests
+pip install shedule

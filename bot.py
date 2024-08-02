@@ -3,12 +3,14 @@ import src.processing.dirs
 
 from config import BOT_TOKEN
 
+import src.controller.shed as shed
+
 from src.controller.document import handle_css, handle_document, handle_html, handle_js
 
 from src.controller import document
 
 from src.controller.message import handle_message
-from src.controller.command import start
+import src.controller.command as command
 from src.parsing.weather import send_weather_for_all
 
 application = ApplicationBuilder().token(BOT_TOKEN).build()
@@ -17,10 +19,10 @@ application = ApplicationBuilder().token(BOT_TOKEN).build()
 
 
 ### COMMAND
-start_handler = CommandHandler('start', start)
+start_handler = CommandHandler('start', command.start)
 application.add_handler(start_handler)
 
-weather_handler = CommandHandler('weather', send_weather_for_all)
+weather_handler = CommandHandler('weather', command.weather)
 application.add_handler(weather_handler)
 
 

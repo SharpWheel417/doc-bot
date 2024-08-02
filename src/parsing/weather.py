@@ -29,7 +29,7 @@ def get_weather_by_city(city, update: Update, context: ContextTypes):
   v.sendmess(f'''Сейчас в городе {CITY} {w.temp}°C\nprint(Ощущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\n Облачность: {w.clouds})''', update=update, context=context)
 
 
-def send_weather_for_all(update: Update, context: ContextTypes):
+def send_weather_for_all():
   users = u.get_all()
 
   try:
@@ -41,3 +41,29 @@ def send_weather_for_all(update: Update, context: ContextTypes):
 
   for user in users:
     v.sendmess_user_id(f'''Сейчас в городе {CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds})''', user.chat_id)
+
+
+
+def get_weather(update: Update, context: ContextTypes) -> Weather:
+  weather_data = requests.get(url).json()
+
+  w = Weather(weather_data['main']['temp'], weather_data['main']['feels_like'], weather_data['wind']['speed'], weather_data['clouds']['all'])
+
+  return w
+
+  # Отправляем значения пользователюы
+  v.sendmess(f'''Сейчас в городе {CITY} {w.temp}°C\nprint(Ощущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\n Облачность: {w.clouds})''', update=update, context=context)
+
+
+def send_weather_for_all(update: Update, context: ContextTypes):
+  users = u.get_all()
+
+  try:
+    weather_data = requests.get(url).json()
+
+    w = Weather(weather_data['main']['temp'], weather_data['main']['feels_like'], weather_data['wind']['speed'], weather_data['clouds']['all'])
+  except Exception as e:
+    print(e)
+
+  # for user in users:
+  #   v.sendmess_user_id(f'''Сейчас в городе {CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds})''', user.chat_id)
