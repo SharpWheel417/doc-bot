@@ -25,9 +25,8 @@ class Game:
         game = Game('', row[2], row[3])
         games.append(game)
     # Close the cursor and the connection to the database
-    db.cursor.close()
     return games
 
   def get_game_id(self):
-    db.cursor.execute(f'SELECT game_id FROM games WHERE name = {self.name}')
+    db.cursor.execute(f'SELECT game_id FROM games WHERE name = "{self.name}"')
     return db.cursor.fetchone()[0]

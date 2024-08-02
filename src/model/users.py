@@ -79,11 +79,12 @@ class User:
 
 
 def get_all():
-    db.cursor.execute(f'SELECT * FROM users')
+    cursor = db.conn.cursor()
+    cursor.execute(f'SELECT * FROM users')
     users = []
     for row in db.cursor.fetchall():
         user = User(row[1], row[2], row[3])
         users.append(user)
     # Close the cursor and the connection to the database
-    db.cursor.close()
+    cursor.close()
     return users

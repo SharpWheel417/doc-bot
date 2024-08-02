@@ -1,8 +1,8 @@
 import requests
 
 import config as config
-from model import achivment
-from model.achivment import Achievement
+from src.model import achivment
+from src.model.achivment import Achievement
 import src.model.games as dbGame
 
 BASE_URL = 'https://xbl.io/'
@@ -77,7 +77,7 @@ def update_games(user_id, xapi):
       game = dbGame.Game(user_id[0], game['name'], game['titleId'])
       game.add()
 
-def get_achivments(game_id, xapi) -> List[Achievement]:
+def get_achivments(game_id, xapi) -> list[Achievement]:
   headers = {
   'accept': '*/*',
   'dnt': '1',

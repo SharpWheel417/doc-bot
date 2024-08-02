@@ -5,7 +5,6 @@ from telegram.ext import CallbackContext
 import subprocess
 
 from config import ADMIN_ID
-from model import achivment
 from src.model.users import User
 from ..view.send import send_pic, sendmess, senddoc, sendmess_buttons
 
@@ -55,13 +54,12 @@ async def handle_message(update: Update, context: CallbackContext):
             u.set_stage()
             await sendmess_buttons("Выбериет игру", buttons.game_page(games), update, context)
 
-        if u.stage == 'change_games':
-            game = Game(u.get_id()[0], text, '')
-            game_id = game.get_game_id()
-            achivments = xbox.get_achivments(game_id, u.xapi)
-
-            for achivment in achivments:
-                await send_pi , f'Tag: {account.GamerTag}\nScore: {account.GamerScore}', update, context)
+    if u.stage == 'change_games':
+        game = Game(u.get_id()[0], text, '')
+        game_id = game.get_game_id()
+        achivments = xbox.get_achivments(game_id, u.xapi)
+        for achivment in achivments:
+            await send_pic(f=achivment.iconURL,text=f'Tag: {account.GamerTag}\nScore: {account.GamerScore}', update=update, context=context)
 
 
 
