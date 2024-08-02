@@ -3,6 +3,8 @@ import src.processing.dirs
 
 from config import BOT_TOKEN
 
+from src.parsing.openxbl import get_acc
+
 import src.controller.shed as shed
 
 from src.controller.document import handle_css, handle_document, handle_html, handle_js

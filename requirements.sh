@@ -10,3 +10,5 @@ pip install cssmin
 
 pip install requests
 pip install shedule
+
+pip install -U cod-api

@@ -1,7 +1,16 @@
 from telegram import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
+from src.model.games import Game
 
-user_base = ReplyKeyboardMarkup([['Узнать погоду'], ['Помощь']], resize_keyboard=True)
+
+user_base = ReplyKeyboardMarkup([['Узнать погоду', 'Ачивки'], ['Ввести ключ OpenXBL', 'Обновить игры', 'Аккаунт', 'Games'], ['Помощь']], resize_keyboard=True)
+
+def game_page(games: Game):
+    mass_buttons = []
+    for game in games:
+        mass_buttons.append([game.name])
+
+    return ReplyKeyboardMarkup(mass_buttons, resize_keyboard=True)
 
 
 #Кнопка "Оплатить покупку"

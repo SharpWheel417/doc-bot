@@ -8,12 +8,14 @@ import src.view.buttons as buttons
 
 from src.parsing.weather import get_weather
 
+import src.parsing.openxbl as xbox
+
 import config as config
 
 ### Комманда Старт ###
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-  u = users.User(update.effective_user.full_name, update.effective_chat.id)
+  u = users.User(update.effective_user.full_name, update.effective_chat.id, 'home', '')
 
   u.add()
 
@@ -27,4 +29,14 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
   w = get_weather()
 
-  await view.sendmess(f'''Сейчас в городе {config.CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds})''', update=update, context=context)
+  await view.sendmess(f'''Сейчас в городе {config.CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds}''', update=update, context=context)
+
+
+async def update_games(update: Update, context: ContextTypes.DEFAULT_TYPE):
+  '''
+    Отправка пользователю погоды
+  '''
+
+
+
+  await view.sendmess(f'''Сейчас в городе {config.CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds}''', update=update, context=context)
