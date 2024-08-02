@@ -58,8 +58,27 @@ async def handle_message(update: Update, context: CallbackContext):
         game = Game(u.get_id()[0], text, '')
         game_id = game.get_game_id()
         achivments = xbox.get_achivments(game_id, u.xapi)
+        i=0
+        messages = []
         for achivment in achivments:
-            await send_pic(f=achivment.iconURL,text=f'Tag: {account.GamerTag}\nScore: {account.GamerScore}', update=update, context=context)
+            if achivment.progressState == 'Achieved':
+                continue
+            if i > 5:
+                # Append the achievement text to the messages list
+                messages.append(f'{achivment.name}\n{achivment.description}\nСекретное: {achivment.isSecret}\nПрогресс: {achivment.progressState}\nG:{achivment.value}')
+            else:
+                # Display the achievement with image
+                await send_pic(f=achivment.iconURL, text=f'{achivment.name}\n{achivment.description}\nСекретное: {achivment.isSecret}\nПрогресс: {achivment.progressState}\nG:{achivment.value}', update=update, context=context)
+            i+=1
+
+
+        if messages:
+            # Split the messages into chunks of 2000 characters
+            message_chunks = [messages[i:i+255] for i in range(0, len(messages), 255)]
+
+            # Send each chunk as a separate message
+            for i, chunk in enumerate(message_chunks):
+                await sendmess('\n'.join(chunk), update=update, context=context)
 
 
 

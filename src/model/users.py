@@ -16,6 +16,7 @@ class User:
       # Commit the changes to the database
       db.conn.commit()
     else:
+      db.cursor.execute(f'UPDATE users SET stage = ? WHERE chat_id = ?', ('home', self.chat_id))
       print(f'User with chat_id {self.chat_id} already exists')
 
 

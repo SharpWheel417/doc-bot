@@ -1,3 +1,9 @@
+python3 -m venv pb
+
+source pb/bin/activate
+
+pip install --upgrade pip
+
 sudo apt update
 sudo apt install pandoc wkhtmltopdf
 
@@ -9,6 +15,6 @@ pip install jsmin
 pip install cssmin
 
 pip install requests
-pip install shedule
+pip install schedule
 
 pip install -U cod-api

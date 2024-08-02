@@ -80,10 +80,7 @@ def update_games(user_id, xapi):
 def get_achivments(game_id, xapi) -> list[Achievement]:
   headers = {
   'accept': '*/*',
-  'dnt': '1',
-  'referer': 'https://xbl.io/console',
-  'sec-ch-ua-platform': "Windows",
-  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+  'accept-language': 'ru',
   'x-authorization': f'{xapi}'
 }
 
@@ -93,7 +90,7 @@ def get_achivments(game_id, xapi) -> list[Achievement]:
     achivments = []
     for a in data['achievements']:
 
-      achivment = Achievement(a["name"], a["progressState"], a["isSecret"], a["description"], a["lockedDescription"], a['rewards']["value"], a['mediaAssets']['url'])
+      achivment = Achievement(a["name"], a["progressState"], a["isSecret"], a["description"], a["lockedDescription"], a['rewards'][0]["value"], a['mediaAssets'][0]['url'])
 
       achivments.append(achivment)
 
