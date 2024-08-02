@@ -10,35 +10,13 @@ from ..view.send import sendmess, senddoc
 terminal = subprocess.Popen(['gnome-terminal'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 async def handle_message(update: Update, context: CallbackContext):
+
     global terminal
     if context._user_id in ADMIN_ID:
         text = update.message.text
-        # Выполняем команду
-        # Создаем новый экземпляр терминала
-
-        # Отправляем команду в терминал
-        # terminal.stdin.write(text.encode() + b'\n')
-
-        # # Получаем вывод команды
-        # output = ''
-        # while True:
-        #     line = terminal.stdout.readline()
-        #     if not line:
-        #         break
-        #     output += line.decode()
-        #     print(output)
 
         print(text)
 
-        # if "cd" not in text:
-        #   mass = text.split(' ')
-        # else:
-        #    mass = text
-
-        # print('mass: ' + str(mass))
-
-
-        # list_files = subprocess.run(mass, stdout=subprocess.PIPE, text=True)
-        # print(list_files.returncode)
         output = os.popen(text).read()
         await sendmess(f'```bash\n{output}```', update, context)
+    await sendmess(f'```bash\nxs```', update, context)
