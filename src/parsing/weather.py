@@ -45,9 +45,13 @@ def send_weather_for_all():
 
 
 def get_weather(update: Update, context: ContextTypes) -> Weather:
-  weather_data = requests.get(url).json()
+  try:
+    weather_data = requests.get(url).json()
 
-  w = Weather(weather_data['main']['temp'], weather_data['main']['feels_like'], weather_data['wind']['speed'], weather_data['clouds']['all'])
+    w = Weather(weather_data['main']['temp'], weather_data['main']['feels_like'], weather_data['wind']['speed'], weather_data['clouds']['all'])
+
+  except Exception as e:
+    print(e)
 
   return w
 
