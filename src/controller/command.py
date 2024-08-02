@@ -27,4 +27,4 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
   w = get_weather()
 
-  view.sendmess(f'''Сейчас в городе {config.CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds})''', update=update, context=context)
+  await view.sendmess(f'''Сейчас в городе {config.CITY} {w.temp}°C\nОщущается как, {w.feels_like} °C'\nСкорость ветра: {w.wind_speed}\nОблачность: {w.clouds})''', update=update, context=context)
